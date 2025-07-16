@@ -82,7 +82,7 @@ export default function CatTranslator() {
           loading || isListening ? "opacity-60 cursor-not-allowed" : ""
         }`}
       >
-        {isListening ? "Parle dans ton micro..." : "Parle comme un chat"}
+        {isListening ? "Parle dans ton micro..." : "Commencer"}
       </button>
       {loading && (
         <div className="text-lg text-gray-700 animate-pulse">
