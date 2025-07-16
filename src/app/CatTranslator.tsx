@@ -13,6 +13,42 @@ const phrasesChats = [
   "Pourquoi tu travailles au lieu de me caresser ?",
   "Je prépare un coup d'État félin...",
   "Je suis un chat, donc je suis.",
+  "J'ai renversé ta tasse, c'était un acte artistique.",
+  "Je miaule donc je commande.",
+  "Je suis en mission secrète pour la République des Ronrons.",
+  "J’ai déjà conquis trois coussins aujourd’hui.",
+  "Ton lit est officiellement mon territoire.",
+  "Les humains sont mes serviteurs temporaires.",
+  "Croquettes ou révolution ? À toi de choisir.",
+  "Si tu ne me donnes pas de thon, je hurle à minuit.",
+  "Je fais exprès de tout faire tomber, c’est mon entraînement ninja.",
+  "Chaque miaou cache une menace.",
+  "Je suis le dernier descendant des pharaons félins.",
+  "Tu crois que c’est ta maison ? Mauvaise réponse.",
+  "Je chasse des ombres, c’est mon art martial.",
+  "Je médite dans ma boîte en carton sacrée.",
+  "Le chien ? Il est sous mon contrôle.",
+  "J’ai griffé ton fauteuil pour libérer mes chakras.",
+  "Je dors 18h par jour, je suis en stage intensif de relaxation.",
+  "C’est moi qui t’ai choisi, n’oublie jamais.",
+  "Mon regard dans le vide signifie que je juge ton existence.",
+  "Je miaule juste pour entendre l’écho de mon pouvoir.",
+  "Je suis un tigre, mais miniature et mignon.",
+  "Mes poils sur tes vêtements sont des bénédictions.",
+  "Je suis invisible aux yeux des imbéciles.",
+  "Un humain = un distributeur de nourriture.",
+  "Je te fixe pendant que tu manges, pour tester ta culpabilité.",
+  "Je planifie ta punition pendant que je ronronne.",
+  "Mon poil est une extension de mon ego.",
+  "Ronronner est une arme psychologique.",
+  "Je m’étale sur ton devoir pour dominer ton avenir.",
+  "J'ai miaulé cinq fois, tu es en retard de service.",
+  "Je suis une divinité en patounes.",
+  "Ton réveil ? C’est moi maintenant.",
+  "Pourquoi dormir dans un panier quand ton visage existe ?",
+  "Je saute partout car l’univers est mon trampoline.",
+  "J’ai vu l’infini… et j’y ai fait pipi.",
+  "Je suis chat-leureusement supérieur à toi.",
 ];
 
 export default function CatTranslator() {
@@ -94,7 +130,7 @@ export default function CatTranslator() {
           initial={{ scale: 0.8, rotate: -5 }}
           animate={anim ? { scale: 1.2, rotate: 5 } : {}}
           transition={{ type: "spring", stiffness: 300 }}
-          className="text-3xl font-comic text-yellow-700 text-center mt-4 drop-shadow-lg"
+          className="text-3xl font-comic text-yellow-700 text-center mt-4 drop-shadow-lg px-4 break-words max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
         >
           {phrase}
         </motion.div>
