@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Parle comme un chat 🐾
 
-## Getting Started
+Une application Next.js 14 amusante qui simule la traduction de ce que dirait un chat quand tu parles dans ton micro !
 
-First, run the development server:
+## Fonctionnalités
+- Bouton central "Parle comme un chat" qui active le micro
+- Affichage d'un loader "Traduction en cours..." pendant l'écoute
+- Affichage d'une phrase absurde et animée comme si le chat avait parlé
+- Animation du chat cartoon et de la phrase traduite
+- Design fun, responsive, police marrante
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Framer Motion
+- API Web Speech (SpeechRecognition)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Démarrage
+1. Installe les dépendances :
+   ```bash
+   npm install
+   ```
+2. Lance le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+3. Ouvre [http://localhost:3000](http://localhost:3000) dans ton navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Personnalisation
+- Remplace `public/cartoon-cat.png` par ton propre chat cartoon si tu veux.
+- Modifie le tableau des phrases dans `src/app/CatTranslator.tsx` pour ajouter tes propres absurdités.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## À venir
+- Ajout possible d'une vraie route API pour des fonctionnalités avancées.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Projet réalisé pour s'amuser et miauler ! 😸
