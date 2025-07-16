@@ -56,23 +56,22 @@ export default function CatTranslator() {
   const [phrase, setPhrase] = useState<string | null>(null);
   const [anim, setAnim] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleClick = () => {
     setLoading(true);
     setPhrase(null);
     setAnim(false);
     setIsListening(true);
+    setErrorMsg(null);
 
-    // Utilisation de l'API Web Speech pour simuler l'écoute micro
     let SpeechRecognition: any = undefined;
     if (typeof window !== "undefined") {
       SpeechRecognition =
         "SpeechRecognition" in window
-          ? (window as typeof window & { SpeechRecognition: any })
-              .SpeechRecognition
+          ? (window as typeof window & { SpeechRecognition: any }).SpeechRecognition
           : "webkitSpeechRecognition" in window
-          ? (window as typeof window & { webkitSpeechRecognition: any })
-              .webkitSpeechRecognition
+          ? (window as typeof window & { webkitSpeechRecognition: any }).webkitSpeechRecognition
           : undefined;
     }
     if (SpeechRecognition) {
@@ -83,14 +82,21 @@ export default function CatTranslator() {
       recognition.onstart = () => {
         setIsListening(true);
       };
-      recognition.onend = () => {
-        setIsListening(false);
-        setTimeout(() => {
+      recognition.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        if (transcript.includes("miaou")) {
           const random = Math.floor(Math.random() * phrasesChats.length);
           setPhrase(phrasesChats[random]);
-          setLoading(false);
           setAnim(true);
-        }, 500);
+          setErrorMsg(null);
+        } else {
+          setPhrase(null);
+          setErrorMsg("Je ne comprends que le miaou, humain ! Essaie encore avec plus de miaou...");
+        }
+        setLoading(false);
+      };
+      recognition.onend = () => {
+        setIsListening(false);
       };
       recognition.onerror = () => {
         setIsListening(false);
@@ -105,6 +111,7 @@ export default function CatTranslator() {
         setPhrase(phrasesChats[random]);
         setLoading(false);
         setAnim(true);
+        setErrorMsg(null);
       }, 2000);
     }
   };
@@ -134,6 +141,11 @@ export default function CatTranslator() {
         >
           {phrase}
         </motion.div>
+      )}
+      {errorMsg && (
+        <div className="text-xl font-comic text-red-500 text-center mt-4 px-4 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl animate-shake">
+          {errorMsg}
+        </div>
       )}
       {isListening && (
         <div className="flex flex-col items-center gap-2">
